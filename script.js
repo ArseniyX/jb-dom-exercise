@@ -1,15 +1,17 @@
 onload = () => {
+
   // 1.
   orderButton.addEventListener("click", () => {
     const sorryMsg = "Sorry this, This product is out of stock.";
     alertMsg.innerHTML = sorryMsg;
   });
+
   // 2.
   let loveState = false;
 
-  loveButton.addEventListener("click", () => {
+  loveButton.addEventListener("click", (event) => {
     const li = document.createElement("li");
-    loveState ? li.append("Love") : li.append("Not love");
+    loveState ? (li.innerHTML = "Love") : (li.innerHTML = "Not love");
     loveList.append(li);
     loveState = !loveState;
   });
@@ -21,18 +23,20 @@ onload = () => {
 
     if (lightMode !== null) {
       mode.innerHTML = "Light Mode";
-      lightMode.classList.remove("light-mode");
-      lightMode.classList.add("dark-mode");
+      //   lightMode.classList.remove("light-mode");
+      //   lightMode.classList.add("dark-mode");
+      lightMode.classList.toggle("dark-mode");
     } else if (darkMode !== null) {
       mode.innerHTML = "Dark Mode";
-      darkMode.classList.remove("dark-mode");
-      darkMode.classList.add("light-mode");
+      //   darkMode.classList.remove("dark-mode");
+      //   darkMode.classList.add("light-mode");
+      darkMode.classList.toggle("light-mode");
     } else {
       console.warn("Something Wrong happened!");
     }
   });
 
-  // 4.
+  // 4. Not the best way
   chooseColor.addEventListener("change", (e) => {
     document.body.style.backgroundColor = e.target.value;
   });
