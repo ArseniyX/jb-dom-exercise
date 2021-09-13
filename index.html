@@ -8,7 +8,15 @@
     <script src="script.js"></script>
     <title>Document</title>
     <style>
+
+        body {
+            margin: 0;
+        }
+
         .light-mode {
+            float: left;
+            width: 100%;
+            height: 100%;
             background-color: antiquewhite;
             color: blueviolet;
         }
@@ -19,11 +27,12 @@
             background-color: black;
             color: white;
         }
+
     </style>
 </head>
 
-<body class="light-mode">
-    <div>
+<body>
+    <div class="light-mode">
         <h1>Exercise - 1</h1>
         <button id="orderButton">Order</button>
         <p id="alertMsg"></p>

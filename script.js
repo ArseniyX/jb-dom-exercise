@@ -1,15 +1,17 @@
-onload = () => {
 
+
+onload = () => {
+  
   // 1.
   orderButton.addEventListener("click", () => {
     const sorryMsg = "Sorry this, This product is out of stock.";
-    alertMsg.innerHTML = sorryMsg;
+    return alertMsg.innerHTML = sorryMsg;
   });
 
   // 2.
   let loveState = false;
 
-  loveButton.addEventListener("click", (event) => {
+  loveButton.addEventListener("click", () => {
     const li = document.createElement("li");
     loveState ? (li.innerHTML = "Love") : (li.innerHTML = "Not love");
     loveList.append(li);
@@ -36,9 +38,10 @@ onload = () => {
     }
   });
 
-  // 4. Not the best way
+  // 4. Not the best way, maybe to use "click" instead "change" and toggle classes
+  // instead changing the inline style with value of the html
   chooseColor.addEventListener("change", (e) => {
-    document.body.style.backgroundColor = e.target.value;
+    document.querySelector("body div").style.backgroundColor = e.target.value
   });
 
   //5.
@@ -58,6 +61,8 @@ onload = () => {
     } else {
       result.innerHTML = "Available";
       email.style.borderColor = "green";
+      emails.push(email.value)
     }
   });
+
 };
